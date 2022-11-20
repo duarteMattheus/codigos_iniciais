@@ -1,0 +1,51 @@
+let listaRecruta = []
+
+function cadastroRecruta() {
+    let dadosRecruta = {}
+    dadosRecruta.nome = prompt("Insira o seu primeiro nome, recruta: ")
+    dadosRecruta.sobrenome = prompt("Insira o seu sobrenome: ")
+    dadosRecruta.campoEstudo = prompt("Insira seu campo de estudo: ")
+    dadosRecruta.anoNascimento = Number(prompt("Insira o seu ano de nascimento: "))
+
+    listaRecruta.push(dadosRecruta)
+
+    alert("Recruta cadastrado com sucesso!\n" +
+         "\nNome recruta: " + dadosRecruta.nome +
+         "\nSobrenome: " + dadosRecruta.sobrenome +
+         "\nCampo de estudo: " + dadosRecruta.campoEstudo +
+         "\nIdade: " + (2022 - dadosRecruta.anoNascimento))
+
+}
+
+function exibirListaRecruta() {
+    listaRecruta.forEach(function(recruta, indice) {
+        console.log("Recrutas cadastrados: \n" +
+             "Indice : " + (indice + 1) +"\nNome :"  + recruta.nome + " " + recruta.sobrenome)
+    })
+}
+
+function menu() {
+    let opcao
+    do {
+        opcao = Number(prompt(
+            "\n1) Cadastrar novo recruta: " +
+            "\n2) Exibir lista de recrutas: " +
+            "\n3) Sair"))
+    
+    switch(opcao) {
+        case 1:
+            cadastroRecruta()
+        break
+        case 2:
+            exibirListaRecruta()
+        break
+        case 3:
+            alert("Saindo do programa...")
+        break
+        default:
+            alert("Digite uma opção válida!")
+    }
+} while (opcao !== 3)
+}
+
+menu()
